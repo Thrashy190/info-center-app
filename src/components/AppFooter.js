@@ -11,10 +11,7 @@ const AppFooter = () => {
         <span className="ms-1">&copy; 2023 TecNM </span>
       </div>
       <div className="ms-auto">
-        <span className="me-1">Powered by students of</span>
-        <a href="https://coreui.io/react" target="_blank" rel="noopener noreferrer">
-          Centro de informacion ITS
-        </a>
+        <span className="me-1">Centro de informacion ITS</span>
       </div>
     </CFooter>
   )
