@@ -38,7 +38,7 @@ const routes = [
 
   //Rutas usuarios
 
-  { path: '/inicio', name: 'Dashboard', element: Inicio },
+  { path: '/inicio', name: 'Inicio', element: Inicio },
   { path: '/libros', name: 'Libros', element: Libros },
   { path: '/tesis', name: 'Tesis', element: Tesis },
   { path: '/residencias', name: 'Residencias', element: Residencias },
