@@ -101,7 +101,7 @@ const Inicio = () => {
         </CRow>
         <CRow className="pb-4 text-medium-emphasis">
           <CCol>
-            <h2>Recomendados</h2>
+            <h2 className="text-medium-emphasis">Recomendados</h2>
           </CCol>
         </CRow>
 
