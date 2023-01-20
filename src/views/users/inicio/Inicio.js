@@ -107,16 +107,16 @@ const Inicio = () => {
 
         {carreras.map(({ nombre, icono, recomendaciones }) => {
           return (
-            <CRow key={this} className="pb-4">
-              <CCol xs={3}>
-                <CCard style={{ width: '18rem' }}>
+            <CRow key={this} className="pb-4 pb-xs-5">
+              <CCol xs={12} md={6} lg={5} xl={4} xxl={3} className="pb-2">
+                <CCard style={{ width: '100%', height: '13.50rem' }}>
                   <CCardBody className="d-flex flex-column align-items-center">
                     <CIcon icon={icono} size={'8xl'} />
                     <CCardTitle className="pt-4">{nombre}</CCardTitle>
                   </CCardBody>
                 </CCard>
               </CCol>
-              <CCol xs={9}>
+              <CCol xs={12} md={6} lg={7} xl={8} xxl={9}>
                 <CCarousel controls indicators dark>
                   {recomendaciones.map(({ nombre, autor }) => {
                     return (
