@@ -172,7 +172,7 @@ const Solicitudes = () => {
                       setVisible(false)
                     }}
                   >
-                    Save changes
+                    Guardar libros
                   </CButton>
                 </CModalFooter>
               </CModal>
