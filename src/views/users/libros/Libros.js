@@ -67,17 +67,25 @@ const Libros = () => {
                           <CCardTitle>{data.nombre}</CCardTitle>
                         </CRow>
                         <CRow>
-                          <CCardSubtitle>Autor</CCardSubtitle>
-                          <CCardText>{data.autor}</CCardText>
-                        </CRow>
-                        <CRow>
                           <CCol>
-                            <CCardSubtitle>Fecha de publicación</CCardSubtitle>
-                            <CCardText>{data.autor}</CCardText>
+                            <CRow>
+                              <CCardSubtitle>Autor</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
+                            <CRow>
+                              <CCardSubtitle>Fecha de publicación</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
                           </CCol>
                           <CCol>
-                            <CCardSubtitle>IBSN/ISSN</CCardSubtitle>
-                            <CCardText>{data.autor}</CCardText>
+                            <CRow>
+                              <CCardSubtitle>Clasificación</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
+                            <CRow>
+                              <CCardSubtitle>Tipo</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
                           </CCol>
                         </CRow>
                       </CCardBody>

@@ -45,7 +45,7 @@ const Residencia = () => {
         {/* este es para el filtro*/}
         <CRow>
           <CCol xs={4}>
-            <CCard style={{ width: '80%', height: '17rem' }}>
+            <CCard style={{ width: '80%', height: '13rem' }}>
               <CCardBody>
                 <CFormInput placeholder="Buscador" />
                 {/* Aqui esta la barrita buscadora de fechas*/}
@@ -81,8 +81,6 @@ const Residencia = () => {
                 </CFormSelect>
                 <CFormCheck className=" my-3" id="flexCheckDefault" label="Disponible" />
                 {/* botton de disponibilidad */}
-                {/* modal */}
-                <CButton alignment="center">Agregar proyecto</CButton>
               </CCardBody>
             </CCard>
           </CCol>

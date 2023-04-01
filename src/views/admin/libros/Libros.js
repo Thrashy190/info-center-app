@@ -46,7 +46,7 @@ const Libros = () => {
         {/* este es para el filtro*/}
         <CRow>
           <CCol xs={4}>
-            <CCard style={{ width: '80%', height: '14rem' }}>
+            <CCard style={{ width: '80%', height: '10rem' }}>
               <CCardBody>
                 <CFormInput placeholder="Buscador" />
                 {/* Aqui esta la barrita buscadora*/}
@@ -61,8 +61,6 @@ const Libros = () => {
                   })}
                 </CFormSelect>
                 <CFormCheck className=" my-3" id="flexCheckDefault" label="Disponible" />
-                {/* botton de disponibilidad */}
-                <CButton>Agregar libro</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -78,18 +76,28 @@ const Libros = () => {
                           <CCardTitle>{data.nombre}</CCardTitle>
                         </CRow>
                         <CRow>
-                          <CCardSubtitle>Autor</CCardSubtitle>
-                          <CCardText>{data.autor}</CCardText>
+                          <CCol>
+                            <CRow>
+                              <CCardSubtitle>Autor</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
+                            <CRow>
+                              <CCardSubtitle>Fecha de publicación</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
+                          </CCol>
+                          <CCol>
+                            <CRow>
+                              <CCardSubtitle>Clasificación</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
+                            <CRow>
+                              <CCardSubtitle>Tipo</CCardSubtitle>
+                              <CCardText>{data.autor}</CCardText>
+                            </CRow>
+                          </CCol>
                         </CRow>
                         <CRow>
-                          <CCol>
-                            <CCardSubtitle>Fecha de publicación</CCardSubtitle>
-                            <CCardText>{data.autor}</CCardText>
-                          </CCol>
-                          <CCol>
-                            <CCardSubtitle>IBSN/ISSN</CCardSubtitle>
-                            <CCardText>{data.autor}</CCardText>
-                          </CCol>
                           <CRow className="my-2">
                             {/* botones de la tarjeta */}
                             <div className="d-grid gap-1 d-md-flex justify-content-md-end">
@@ -107,7 +115,7 @@ const Libros = () => {
                               onClose={() => setVisible(false)}
                             >
                               <CModalHeader onClose={() => setVisible(false)}>
-                                <CModalTitle alignment="center">Agregar un libro</CModalTitle>
+                                <CModalTitle alignment="center">Modificar libro</CModalTitle>
                               </CModalHeader>
                               <CModalBody>
                                 <CRow>
@@ -118,7 +126,7 @@ const Libros = () => {
                                 </CRow>
                                 <CRow>
                                   <CCol>
-                                    <span>Autor/es</span>
+                                    <span>Autor</span>
                                     <CFormInput className=" my-2" placeholder="Autor/es" />
                                   </CCol>
                                 </CRow>
@@ -136,11 +144,23 @@ const Libros = () => {
                                           </option>
                                         )
                                       })}
-                                    </CFormSelect>{' '}
+                                    </CFormSelect>
                                   </CCol>
                                   <CCol>
-                                    <span>ISBN/ISSN</span>
-                                    <CFormInput className=" my-2" placeholder="ISBN/ISSN" />
+                                    <span>Clasificación</span>
+                                    <CFormInput className=" my-2" placeholder="Clasificacion" />
+                                  </CCol>
+                                </CRow>
+                                <CRow>
+                                  <CCol>
+                                    <span>Tipo</span>
+                                    <CFormSelect
+                                      aria-label="Default select example"
+                                      className=" my-2"
+                                    >
+                                      <option value="1">Libro</option>
+                                      <option value="2">Manual</option>
+                                    </CFormSelect>
                                   </CCol>
                                 </CRow>
                               </CModalBody>

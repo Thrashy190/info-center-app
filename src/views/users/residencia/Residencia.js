@@ -37,7 +37,7 @@ const Residencia = () => {
         {/* este es para el filtro*/}
         <CRow>
           <CCol xs={4}>
-            <CCard style={{ width: '80%', height: '13rem' }}>
+            <CCard style={{ width: '80%', height: '14rem' }}>
               <CCardBody>
                 <CFormInput placeholder="Buscador" />
                 {/* Aqui esta la barrita buscadora de fechas*/}
