@@ -19,7 +19,7 @@ const Libros = () => {
           <CCol xs={12} lg={5} xl={4} xxl={3}>
             <BookSearcher />
           </CCol>
-          <CCol xs={12} lg={5} xl={4} xxl={3}>
+          <CCol xs={12} lg={7} xl={8} xxl={9}>
             {arr.map((data) => {
               return (
                 <CRow key={data.id}>

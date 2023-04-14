@@ -8,6 +8,8 @@ import {
   CFormInput,
   CFormSelect,
   CButton,
+  CRow,
+  CCol,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilMenu } from '@coreui/icons'
@@ -27,23 +29,32 @@ const AppHeader = () => {
         >
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
-        <div className="d-flex flex-row d-grid gap-4">
-          <CFormInput
-            style={{ width: '30rem' }}
-            type="email"
-            id="floatingInput"
-            floatingLabel="¿Qué estas buscando?"
-            placeholder="¿Qué estas buscando?"
-          />
-          <CFormSelect style={{ width: '10rem' }} aria-label="Default select example">
-            <option value="1">Libros</option>
-            <option value="2">Tesis</option>
-            <option value="3">Proyectos de residencias</option>
-          </CFormSelect>
-          <CButton color="dark" style={{ width: '10rem' }}>
-            Buscar
-          </CButton>
-        </div>
+        <CRow>
+          <CCol xs={12} md={6} className="mb-2">
+            <CFormInput
+              style={{ width: '100%' }}
+              type="email"
+              id="floatingInput"
+              floatingLabel="¿Qué estas buscando?"
+              placeholder="¿Qué estas buscando?"
+            />
+          </CCol>
+          <CCol xs={12} md={3} className="mb-2">
+            <CFormSelect
+              style={{ width: '100%', height: '100%' }}
+              aria-label="Default select example"
+            >
+              <option value="1">Libros</option>
+              <option value="2">Tesis</option>
+              <option value="3">Proyectos de residencias</option>
+            </CFormSelect>
+          </CCol>
+          <CCol xs={12} md={3}>
+            <CButton color="dark" style={{ width: '100%', height: '100%' }}>
+              Buscar
+            </CButton>
+          </CCol>
+        </CRow>
       </CContainer>
       <CHeaderDivider />
       <CContainer fluid>
