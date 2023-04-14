@@ -1,29 +1,36 @@
 import React from 'react'
-import { CCard, CCardBody, CCardSubtitle, CCardText, CCardTitle, CCol, CRow } from '@coreui/react'
+import {
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCardSubtitle,
+  CCardText,
+  CCardTitle,
+  CCol,
+  CRow,
+} from '@coreui/react'
 
 const TesisCards = ({ data }) => {
   return (
-    <CCard style={{ width: '90%', height: '9rem' }} className=" my-2">
+    <CCard style={{ height: '12rem' }} className=" my-2">
+      <CCardHeader className="d-flex justify-content-between">
+        <CCardTitle style={{ paddingTop: '5px' }}>{data.nombre}</CCardTitle>
+      </CCardHeader>
       <CCardBody>
-        <CRow>
-          <CCardTitle>{data.nombre}</CCardTitle>
-        </CRow>
-        <CRow>
+        <CRow className="pb-2">
           <CCol>
-            <CRow>
-              <CCardSubtitle>Especialidad</CCardSubtitle>
-              <CCardText>{data.especialidad}</CCardText>
-            </CRow>
-            <CRow className="my-2">
-              <CCardSubtitle>Fecha</CCardSubtitle>
-              <CCardText>2022</CCardText>
-            </CRow>
+            <CCardSubtitle>Especialidad</CCardSubtitle>
+            <CCardText>{data.Especialidad}</CCardText>
           </CCol>
           <CCol>
-            <CRow className="my-2">
-              <CCardSubtitle>Ejemplar</CCardSubtitle>
-              <CCardText>{data.code}</CCardText>
-            </CRow>
+            <CCardSubtitle>Ejemplar</CCardSubtitle>
+            <CCardText>{data.Ejemplar}</CCardText>
+          </CCol>
+        </CRow>
+        <CRow>
+          <CCol className="my-2">
+            <CCardSubtitle>Fecha</CCardSubtitle>
+            <CCardText>2022</CCardText>
           </CCol>
         </CRow>
       </CCardBody>

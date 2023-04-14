@@ -16,10 +16,10 @@ const Libros = () => {
       <CContainer>
         {/* este es para el filtro*/}
         <CRow>
-          <CCol xs={4}>
+          <CCol xs={12} lg={5} xl={4} xxl={3}>
             <BookSearcher />
           </CCol>
-          <CCol>
+          <CCol xs={12} lg={7} xl={8} xxl={9}>
             {/* este es para cada tarjeta*/}
             {arr.map((data) => {
               return (

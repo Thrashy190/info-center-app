@@ -1,33 +1,40 @@
 import React from 'react'
-import { CCard, CCardBody, CCardSubtitle, CCardText, CCardTitle, CCol, CRow } from '@coreui/react'
+import {
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCardSubtitle,
+  CCardText,
+  CCardTitle,
+  CCol,
+  CRow,
+} from '@coreui/react'
 
 const BooksCards = ({ data }) => {
   return (
-    <CCard style={{ width: '90%', height: '9rem' }} className=" my-2">
+    <CCard style={{ height: '12rem' }} className=" my-2">
+      <CCardHeader className="d-flex justify-content-between">
+        <CCardTitle style={{ paddingTop: '5px' }}>{data.nombre}</CCardTitle>
+      </CCardHeader>
       <CCardBody>
-        <CRow>
-          <CCardTitle>{data.nombre}</CCardTitle>
+        <CRow className="pb-3">
+          <CCol>
+            <CCardSubtitle>Autor</CCardSubtitle>
+            <CCardText>{data.autor}</CCardText>
+          </CCol>
+          <CCol>
+            <CCardSubtitle>Fecha de publicación</CCardSubtitle>
+            <CCardText>{data.autor}</CCardText>
+          </CCol>
         </CRow>
         <CRow>
           <CCol>
-            <CRow>
-              <CCardSubtitle>Autor</CCardSubtitle>
-              <CCardText>{data.autor}</CCardText>
-            </CRow>
-            <CRow>
-              <CCardSubtitle>Fecha de publicación</CCardSubtitle>
-              <CCardText>{data.autor}</CCardText>
-            </CRow>
+            <CCardSubtitle>Clasificación</CCardSubtitle>
+            <CCardText>{data.autor}</CCardText>
           </CCol>
           <CCol>
-            <CRow>
-              <CCardSubtitle>Clasificación</CCardSubtitle>
-              <CCardText>{data.autor}</CCardText>
-            </CRow>
-            <CRow>
-              <CCardSubtitle>Tipo</CCardSubtitle>
-              <CCardText>{data.autor}</CCardText>
-            </CRow>
+            <CCardSubtitle>Tipo</CCardSubtitle>
+            <CCardText>{data.autor}</CCardText>
           </CCol>
         </CRow>
       </CCardBody>
