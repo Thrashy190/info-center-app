@@ -26,7 +26,7 @@ import {
 const Inicio = () => {
   const carreras = [
     {
-      nombre: 'Sistemas computacionales',
+      nombre: 'Sistemas',
       icono: cilCode,
       recomendaciones: [
         { nombre: 'java', autor: 'Diego' },
@@ -96,7 +96,7 @@ const Inicio = () => {
       <CContainer>
         <CRow className="pb-5">
           <CCol>
-            <h1>!Bienvenido¡</h1>
+            <h1>¡Bienvenido!</h1>
           </CCol>
         </CRow>
         <CRow className="pb-4 text-medium-emphasis">
