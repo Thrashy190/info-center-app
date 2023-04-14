@@ -1,59 +1,23 @@
 import React from 'react'
-import {
-  CCard,
-  CCardBody,
-  CCardTitle,
-  CCardText,
-  CRow,
-  CCol,
-  CContainer,
-  CCardSubtitle,
-  CPagination,
-  CPaginationItem,
-  CFormInput,
-  CFormCheck,
-  CFormSelect,
-} from '@coreui/react'
+import { CRow, CCol, CContainer } from '@coreui/react'
+import BookSearcher from '../../../components/buscadores/BookSearcher'
+import Pagination from '../../../components/pagination/Pagination'
+import BooksCards from '../../../components/user/cards/BooksCards'
+
+const arr = [
+  { nombre: 'Titulo 1', autor: 'nombre', id: 1 },
+  { nombre: 'Titulo 2', autor: 'nombre', id: 2 },
+  { nombre: 'Titulo 3', autor: 'nombre', id: 3 },
+]
 
 const Libros = () => {
-  function rangeYear() {
-    const max = new Date().getFullYear()
-    const min = 1900
-    const years = []
-
-    for (let i = max; i >= min; i--) {
-      years.push(i)
-    }
-    return years
-  }
-  const arr = [
-    { nombre: 'Titulo 1', autor: 'nombre', id: 1 },
-    { nombre: 'Titulo 2', autor: 'nombre', id: 2 },
-    { nombre: 'Titulo 3', autor: 'nombre', id: 3 },
-  ]
   return (
     <>
       <CContainer>
         {/* este es para el filtro*/}
         <CRow>
           <CCol xs={4}>
-            <CCard style={{ width: '80%', height: '11rem' }}>
-              <CCardBody>
-                <CFormInput placeholder="Buscador" />
-                {/* Aqui esta la barrita buscadora*/}
-                <CFormSelect aria-label="Default select example" className=" my-3">
-                  {rangeYear().map((year) => {
-                    return (
-                      <option value={year} key={year}>
-                        {year}
-                      </option>
-                    )
-                  })}
-                </CFormSelect>
-                <CFormCheck className=" my-3" id="flexCheckDefault" label="Disponible" />
-                {/* botton de disponibilidad */}
-              </CCardBody>
-            </CCard>
+            <BookSearcher />
           </CCol>
           <CCol>
             {/* este es para cada tarjeta*/}
@@ -61,35 +25,7 @@ const Libros = () => {
               return (
                 <CRow key={data.id}>
                   <CCol>
-                    <CCard style={{ width: '90%', height: '9rem' }} className=" my-2">
-                      <CCardBody>
-                        <CRow>
-                          <CCardTitle>{data.nombre}</CCardTitle>
-                        </CRow>
-                        <CRow>
-                          <CCol>
-                            <CRow>
-                              <CCardSubtitle>Autor</CCardSubtitle>
-                              <CCardText>{data.autor}</CCardText>
-                            </CRow>
-                            <CRow>
-                              <CCardSubtitle>Fecha de publicación</CCardSubtitle>
-                              <CCardText>{data.autor}</CCardText>
-                            </CRow>
-                          </CCol>
-                          <CCol>
-                            <CRow>
-                              <CCardSubtitle>Clasificación</CCardSubtitle>
-                              <CCardText>{data.autor}</CCardText>
-                            </CRow>
-                            <CRow>
-                              <CCardSubtitle>Tipo</CCardSubtitle>
-                              <CCardText>{data.autor}</CCardText>
-                            </CRow>
-                          </CCol>
-                        </CRow>
-                      </CCardBody>
-                    </CCard>
+                    <BooksCards data={data} />
                   </CCol>
                 </CRow>
               )
@@ -98,13 +34,7 @@ const Libros = () => {
         </CRow>
       </CContainer>
       {/* aqui esta la pagincación */}
-      <CPagination aria-label="Page navigation example" className="justify-content-center">
-        <CPaginationItem>Previous</CPaginationItem>
-        <CPaginationItem>1</CPaginationItem>
-        <CPaginationItem>2</CPaginationItem>
-        <CPaginationItem>3</CPaginationItem>
-        <CPaginationItem>Next</CPaginationItem>
-      </CPagination>
+      <Pagination />
     </>
   )
 }
