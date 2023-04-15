@@ -1,7 +1,7 @@
 import React from 'react'
 import { CRow, CCol, CContainer } from '@coreui/react'
-import BookSearcher from '../../../components/buscadores/BookSearcher'
-import Pagination from '../../../components/pagination/Pagination'
+import BookSearcher from '../../../components/shared/buscadores/BookSearcher'
+import Pagination from '../../../components/shared/pagination/Pagination'
 import BooksCards from '../../../components/user/cards/BooksCards'
 
 const arr = [

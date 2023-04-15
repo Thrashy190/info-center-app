@@ -12,9 +12,9 @@ import 'simplebar/dist/simplebar.min.css'
 // Aqui es para cambiar el como se ve el navbar
 // Es poner entre _adminNav y _userNav
 
-import navigation from '../_adminNav'
+import navigation from '../../_adminNav'
 
-import its from '../assets/brand/its.png'
+import its from '../../assets/brand/its.png'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()

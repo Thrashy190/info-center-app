@@ -1,7 +1,7 @@
 import React from 'react'
 import { CRow, CCol, CContainer } from '@coreui/react'
-import TesisSearcher from '../../../components/buscadores/TesisSearcher'
-import Pagination from '../../../components/pagination/Pagination'
+import TesisSearcher from '../../../components/shared/buscadores/TesisSearcher'
+import Pagination from '../../../components/shared/pagination/Pagination'
 import TesisCardsAdmin from '../../../components/admin/cards/TesisCardsAdmin'
 
 const Tesis = () => {

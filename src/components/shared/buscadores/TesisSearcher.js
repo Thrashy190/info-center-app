@@ -1,7 +1,7 @@
 import React from 'react'
 import { CCard, CCardBody, CFormCheck, CFormInput, CFormSelect } from '@coreui/react'
 
-import { rangeYear } from '../../helpers/date'
+import { rangeYear } from '../../../helpers/date'
 
 const TesisSearcher = () => {
   return (

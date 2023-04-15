@@ -1,7 +1,7 @@
 import React from 'react'
 import { CRow, CCol, CContainer } from '@coreui/react'
-import ProjectsSearcher from '../../../components/buscadores/ProjectsSearcher'
-import Pagination from '../../../components/pagination/Pagination'
+import ProjectsSearcher from '../../../components/shared/buscadores/ProjectsSearcher'
+import Pagination from '../../../components/shared/pagination/Pagination'
 import ProjectsCardsAdmin from '../../../components/admin/cards/ProjectsCardsAdmin'
 
 const arr = [

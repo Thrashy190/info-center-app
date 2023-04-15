@@ -1,9 +1,9 @@
 import React from 'react'
 import { CRow, CCol, CContainer } from '@coreui/react'
 
-import BookSearcher from '../../../components/buscadores/BookSearcher'
+import BookSearcher from '../../../components/shared/buscadores/BookSearcher'
 import BooksCardsAdmin from '../../../components/admin/cards/BooksCardsAdmin'
-import Pagination from '../../../components/pagination/Pagination'
+import Pagination from '../../../components/shared/pagination/Pagination'
 
 const Libros = () => {
   const arr = [

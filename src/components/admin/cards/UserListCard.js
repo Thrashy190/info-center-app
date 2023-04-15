@@ -23,6 +23,15 @@ const UserListCard = () => {
       birthYear: 2002,
       employeeId: 12312,
     },
+    {
+      id: 2,
+      name: 'John',
+      lastName: 'Doe',
+      middleName: 'Doe',
+      email: 'diego@diego.com',
+      birthYear: 2002,
+      employeeId: 12312,
+    },
   ])
 
   //useEffect(() => {
