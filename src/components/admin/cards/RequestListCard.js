@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {
+  CBadge,
   CButton,
   CCard,
   CCardBody,
@@ -43,7 +44,14 @@ const RequestListCard = ({ bookRequests, setBookRequests }) => {
                 <CTableDataCell>{bookRequest.id}</CTableDataCell>
                 <CTableDataCell>{bookRequest.date}</CTableDataCell>
                 <CTableDataCell>{`${bookRequest.description.substring(0, 50)}...`}</CTableDataCell>
-                <CTableDataCell>{bookRequest.reviewed ? 'Sí' : 'No'}</CTableDataCell>
+                <CTableDataCell>
+                  <CBadge
+                    style={{ width: '100%', height: '100%' }}
+                    color={bookRequest.reviewed ? 'success' : 'danger'}
+                  >
+                    {' '}
+                  </CBadge>
+                </CTableDataCell>
                 <CTableDataCell>
                   <CButton
                     color="primary"
