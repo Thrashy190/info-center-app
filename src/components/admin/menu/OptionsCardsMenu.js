@@ -17,9 +17,9 @@ const OptionsCardsMenu = ({ visible, setVisible, visibleDelete, setVisibleDelete
           <CIcon icon={cilOptions} />
         </CDropdownToggle>
         <CDropdownMenu>
-          <CDropdownItem onClick={() => setVisibleDelete(!visibleDelete)}>Eliminar</CDropdownItem>
-          <CDropdownDivider />
           <CDropdownItem onClick={() => setVisible(!visible)}>Modificar</CDropdownItem>
+          <CDropdownDivider />
+          <CDropdownItem onClick={() => setVisibleDelete(!visibleDelete)}>Eliminar</CDropdownItem>
         </CDropdownMenu>
       </CDropdown>
     </div>
