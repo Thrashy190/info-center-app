@@ -46,13 +46,13 @@ const _userNav = [
   {
     component: CNavItem,
     name: 'Solicitud de libros',
-    to: '/contacto',
+    to: '/solicitudes',
     icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Contactanos',
-    to: '/solicitudes',
+    to: '/contacto',
     icon: <CIcon icon={cilPhone} customClassName="nav-icon" />,
   },
 ]
