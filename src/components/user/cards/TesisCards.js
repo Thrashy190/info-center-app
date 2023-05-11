@@ -9,6 +9,7 @@ import {
   CCol,
   CRow,
 } from '@coreui/react'
+import PropTypes from 'prop-types'
 
 const TesisCards = ({ data }) => {
   return (
@@ -36,6 +37,10 @@ const TesisCards = ({ data }) => {
       </CCardBody>
     </CCard>
   )
+}
+
+TesisCards.propTypes = {
+  data: PropTypes.string.isRequired, // Add the missing prop type validation
 }
 
 export default TesisCards
