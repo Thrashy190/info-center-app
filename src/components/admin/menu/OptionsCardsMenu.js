@@ -8,6 +8,7 @@ import {
   CDropdownMenu,
   CDropdownToggle,
 } from '@coreui/react'
+import PropTypes from 'prop-types'
 
 const OptionsCardsMenu = ({ visible, setVisible, visibleDelete, setVisibleDelete }) => {
   return (
@@ -24,6 +25,13 @@ const OptionsCardsMenu = ({ visible, setVisible, visibleDelete, setVisibleDelete
       </CDropdown>
     </div>
   )
+}
+
+OptionsCardsMenu.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  setVisible: PropTypes.func.isRequired,
+  visibleDelete: PropTypes.bool.isRequired,
+  setVisibleDelete: PropTypes.func.isRequired,
 }
 
 export default OptionsCardsMenu

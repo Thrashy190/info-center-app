@@ -7,11 +7,16 @@ import { cibFacebook } from '@coreui/icons'
 import alfa from '../../../assets/brand/alfa.jpg'
 import ebsco from '../../../assets/brand/Ebsco.jpg'
 import elibro from '../../../assets/brand/elibro.png'
+import ebooks from '../../../assets/brand/ebooks.png'
 
 const Contacto = () => {
   const contacto = [
-    { titulo: 'Correo', text: 'correo@correo.com', url: 'mailto:diego.456.dlm77@gmail.com' },
-    { titulo: 'Telefono', text: '8441039924', url: 'tel:+528441039924' },
+    {
+      titulo: 'Correo',
+      text: 'centrodeinformacion.its @saltillo.tecnm.mx',
+      url: 'mailto:centrodeinformacion.its@saltillo.tecnm.mx',
+    },
+    { titulo: 'Telefono', text: '8442889460', url: 'tel:+528442889460' },
     {
       titulo: 'Redes',
       icon: <CIcon icon={cibFacebook} size={'3xl'} />,
@@ -29,6 +34,10 @@ const Contacto = () => {
     {
       logo: elibro,
       url: 'https://elibro.net/es/lc/itsaltillo/login_usuario/?next=/es/lc/itsaltillo/inicio/',
+    },
+    {
+      logo: ebooks,
+      url: 'http://www.ebooks7-24.com',
     },
   ]
 
@@ -103,7 +112,7 @@ const Contacto = () => {
         <CRow className="pb-4">
           {eLibrerias.map(({ logo, url }) => {
             return (
-              <CCol xs={12} lg={4} key={this} className="pb-4">
+              <CCol xs={12} lg={3} key={this} className="pb-4">
                 <a href={url}>
                   <CCard
                     style={{ width: '100%', height: '100%' }}

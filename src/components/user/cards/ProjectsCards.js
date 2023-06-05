@@ -8,6 +8,7 @@ import {
   CCardTitle,
   CRow,
 } from '@coreui/react'
+import PropTypes from 'prop-types'
 
 const ProjectsCards = ({ data }) => {
   return (
@@ -27,6 +28,10 @@ const ProjectsCards = ({ data }) => {
       </CCardBody>
     </CCard>
   )
+}
+
+ProjectsCards.propTypes = {
+  data: PropTypes.string.isRequired, // Add the missing prop type validation
 }
 
 export default ProjectsCards

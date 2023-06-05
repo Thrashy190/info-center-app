@@ -12,6 +12,7 @@ import {
 import ProjectsModalsAdmin from '../modals/ProjectsModalsAdmin'
 import OptionsCardsMenu from '../menu/OptionsCardsMenu'
 import DeleteModalsAdmin from '../modals/DeleteModalsAdmin'
+import PropTypes from 'prop-types'
 
 const ProjectsCardsAdmin = ({ data }) => {
   const [visible, setVisible] = useState(false)
@@ -47,6 +48,10 @@ const ProjectsCardsAdmin = ({ data }) => {
       />
     </CCard>
   )
+}
+
+ProjectsCardsAdmin.propTypes = {
+  data: PropTypes.string.isRequired, // Add the missing prop type validation
 }
 
 export default ProjectsCardsAdmin

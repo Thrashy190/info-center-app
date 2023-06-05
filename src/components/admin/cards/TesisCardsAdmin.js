@@ -13,6 +13,7 @@ import {
 import TesisModalsAdmin from '../modals/TesisModalsAdmin'
 import OptionsCardsMenu from '../menu/OptionsCardsMenu'
 import DeleteModalsAdmin from '../modals/DeleteModalsAdmin'
+import PropTypes from 'prop-types'
 
 const TesisCardsAdmin = ({ data }) => {
   const [visible, setVisible] = useState(false)
@@ -56,6 +57,10 @@ const TesisCardsAdmin = ({ data }) => {
       />
     </CCard>
   )
+}
+
+TesisCardsAdmin.propTypes = {
+  data: PropTypes.string.isRequired, // Add the missing prop type validation
 }
 
 export default TesisCardsAdmin

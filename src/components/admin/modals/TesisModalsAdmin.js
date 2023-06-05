@@ -12,6 +12,8 @@ import {
   CRow,
 } from '@coreui/react'
 import { rangeYear } from '../../../helpers/date'
+import PropTypes from 'prop-types'
+
 const carreras = [
   { id: 1, nombre: 'Informatica' },
   { id: 2, nombre: 'Administración' },
@@ -80,6 +82,11 @@ const TesisModalsAdmin = ({ visible, setVisible }) => {
       </CModalFooter>
     </CModal>
   )
+}
+
+TesisModalsAdmin.propTypes = {
+  visible: PropTypes.bool,
+  setVisible: PropTypes.func,
 }
 
 export default TesisModalsAdmin
