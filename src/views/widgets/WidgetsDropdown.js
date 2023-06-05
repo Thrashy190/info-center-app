@@ -1,17 +1,9 @@
 import React from 'react'
-import {
-  CRow,
-  CCol,
-  CDropdown,
-  CDropdownMenu,
-  CDropdownItem,
-  CDropdownToggle,
-  CWidgetStatsA,
-} from '@coreui/react'
+import { CRow, CCol, CWidgetStatsA } from '@coreui/react'
 import { getStyle } from '@coreui/utils'
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import CIcon from '@coreui/icons-react'
-import { cilArrowBottom, cilArrowTop, cilOptions } from '@coreui/icons'
+import { cilArrowBottom, cilArrowTop } from '@coreui/icons'
 
 const WidgetsDropdown = () => {
   return (
@@ -29,19 +21,6 @@ const WidgetsDropdown = () => {
             </>
           }
           title="Users"
-          action={
-            <CDropdown alignment="end">
-              <CDropdownToggle color="transparent" caret={false} className="p-0">
-                <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
-              </CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem>Action</CDropdownItem>
-                <CDropdownItem>Another action</CDropdownItem>
-                <CDropdownItem>Something else here...</CDropdownItem>
-                <CDropdownItem disabled>Disabled action</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
-          }
           chart={
             <CChartLine
               className="mt-3 mx-3"
@@ -116,19 +95,6 @@ const WidgetsDropdown = () => {
             </>
           }
           title="Income"
-          action={
-            <CDropdown alignment="end">
-              <CDropdownToggle color="transparent" caret={false} className="p-0">
-                <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
-              </CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem>Action</CDropdownItem>
-                <CDropdownItem>Another action</CDropdownItem>
-                <CDropdownItem>Something else here...</CDropdownItem>
-                <CDropdownItem disabled>Disabled action</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
-          }
           chart={
             <CChartLine
               className="mt-3 mx-3"
@@ -202,19 +168,6 @@ const WidgetsDropdown = () => {
             </>
           }
           title="Conversion Rate"
-          action={
-            <CDropdown alignment="end">
-              <CDropdownToggle color="transparent" caret={false} className="p-0">
-                <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
-              </CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem>Action</CDropdownItem>
-                <CDropdownItem>Another action</CDropdownItem>
-                <CDropdownItem>Something else here...</CDropdownItem>
-                <CDropdownItem disabled>Disabled action</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
-          }
           chart={
             <CChartLine
               className="mt-3"
@@ -275,19 +228,6 @@ const WidgetsDropdown = () => {
             </>
           }
           title="Sessions"
-          action={
-            <CDropdown alignment="end">
-              <CDropdownToggle color="transparent" caret={false} className="p-0">
-                <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
-              </CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem>Action</CDropdownItem>
-                <CDropdownItem>Another action</CDropdownItem>
-                <CDropdownItem>Something else here...</CDropdownItem>
-                <CDropdownItem disabled>Disabled action</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
-          }
           chart={
             <CChartBar
               className="mt-3 mx-3"
