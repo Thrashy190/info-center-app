@@ -10,9 +10,10 @@ import {
   CButton,
   CRow,
   CCol,
+  CAvatar,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilMenu } from '@coreui/icons'
+import { cilMenu, cilUser } from '@coreui/icons'
 
 import { AppBreadcrumb } from './index'
 
@@ -30,7 +31,7 @@ const AppHeader = () => {
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
         <CRow>
-          <CCol xs={12} md={6} className="mb-2">
+          <CCol xs={12} md={4} className="mb-2">
             <CFormInput
               style={{ width: '100%' }}
               type="email"
@@ -53,6 +54,11 @@ const AppHeader = () => {
             <CButton color="dark" style={{ width: '100%', height: '100%' }}>
               Buscar
             </CButton>
+          </CCol>
+          <CCol xs={12} md={2}>
+            <CAvatar color="secondary" size="lg">
+              <CIcon icon={cilUser} customClassName="nav-icon" />
+            </CAvatar>
           </CCol>
         </CRow>
       </CContainer>

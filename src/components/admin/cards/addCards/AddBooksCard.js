@@ -11,17 +11,16 @@ import {
   CFormLabel,
   CRow,
 } from '@coreui/react'
-import PropTypes from 'prop-types'
 
-const RegisterUserCard = () => {
+const AddBooksCard = () => {
   const [formValues, setFormValues] = useState({
-    firstName: '',
-    lastName: '',
-    middleName: '',
-    email: '',
-    birthYear: '',
-    password: '',
-    employeeId: '',
+    title: '',
+    year: '',
+    clasification: '',
+    author: '',
+    isbn_issn: '',
+    status: '',
+    type: '',
   })
 
   const handleInputChange = (e) => {
@@ -34,111 +33,96 @@ const RegisterUserCard = () => {
     // Here you can implement your logic to submit the form values
     console.log(formValues)
     setFormValues({
-      firstName: '',
-      lastName: '',
-      middleName: '',
-      email: '',
-      birthYear: '',
-      password: '',
-      employeeId: '',
-    })
-  }
-
-  const handleCancel = () => {
-    setFormValues({
-      firstName: '',
-      lastName: '',
-      middleName: '',
-      email: '',
-      birthYear: '',
-      password: '',
-      employeeId: '',
+      title: '',
+      year: '',
+      clasification: '',
+      autor: '',
+      isbn_issn: '',
+      status: '',
+      type: '',
     })
   }
 
   return (
     <CCard>
       <CCardHeader>
-        <CCardTitle className="pt-2">Agregar Usuario</CCardTitle>
+        <CCardTitle className="pt-2">Agregar Libros</CCardTitle>
       </CCardHeader>
       <CCardBody>
         <CForm onSubmit={handleSubmit}>
           <CRow>
             <CCol xs={12} md={4}>
-              <CFormLabel>Nombre</CFormLabel>
+              <CFormLabel>Titulo</CFormLabel>
               <CFormInput
                 type="text"
-                name="firstName"
-                value={formValues.firstName}
+                name="title"
+                value={formValues.title}
                 onChange={handleInputChange}
               />
             </CCol>
             <CCol xs={12} md={4}>
-              <CFormLabel>Apellido Paterno</CFormLabel>
-              <CFormInput
-                type="text"
-                name="lastName"
-                value={formValues.lastName}
-                onChange={handleInputChange}
-              />
-            </CCol>
-            <CCol xs={12} md={4}>
-              <CFormLabel>Apellido Materno</CFormLabel>
-              <CFormInput
-                type="text"
-                name="middleName"
-                value={formValues.middleName}
-                onChange={handleInputChange}
-              />
-            </CCol>
-          </CRow>
-
-          <CRow>
-            <CCol xs={12} md={4}>
-              <CFormLabel>Año de Nacimiento</CFormLabel>
+              <CFormLabel>Año/volumen</CFormLabel>
               <CFormInput
                 type="number"
-                name="birthYear"
-                value={formValues.birthYear}
+                name="year"
+                value={formValues.year}
+                onChange={handleInputChange}
+              />
+            </CCol>
+            <CCol xs={12} md={4}>
+              <CFormLabel>Clasificacion</CFormLabel>
+              <CFormInput
+                type="text"
+                name="clasification"
+                value={formValues.clasification}
+                onChange={handleInputChange}
+              />
+            </CCol>
+          </CRow>
+
+          <CRow>
+            <CCol xs={12} md={4}>
+              <CFormLabel>Autor</CFormLabel>
+              <CFormInput
+                type="number"
+                name="author"
+                value={formValues.author}
                 onChange={handleInputChange}
               />
             </CCol>
 
             <CCol xs={12} md={4}>
-              <CFormLabel>Matrícula de Empleado</CFormLabel>
+              <CFormLabel>ISBN/ISSN</CFormLabel>
               <CFormInput
                 type="text"
-                name="employeeId"
-                value={formValues.employeeId}
+                name="isbn_issn"
+                value={formValues.isbn_issn}
                 onChange={handleInputChange}
               />
             </CCol>
           </CRow>
           <CRow>
             <CCol xs={12} md={4}>
-              <CFormLabel>Correo</CFormLabel>
+              <CFormLabel>Estado</CFormLabel>
               <CFormInput
                 type="email"
-                name="email"
-                value={formValues.email}
+                name="status"
+                value={formValues.status}
                 onChange={handleInputChange}
               />
             </CCol>
             <CCol xs={12} md={4}>
-              <CFormLabel>Contraseña</CFormLabel>
+              <CFormLabel>Tipo</CFormLabel>
               <CFormInput
-                type="password"
-                name="password"
-                value={formValues.password}
+                type="text"
+                name="type"
+                value={formValues.type}
                 onChange={handleInputChange}
               />
             </CCol>
           </CRow>
           <CRow className="pt-4 ">
             <CCol className="d-flex justify-content-end gap-4">
-              <CButton type="button" color="secondary" onClick={handleCancel}>
-                Cancelar
-              </CButton>
               <CButton type="submit" color="primary" className="mr-2">
                 Crear
               </CButton>
@@ -150,8 +134,4 @@ const RegisterUserCard = () => {
   )
 }
 
-RegisterUserCard.propTypes = {
-  data: PropTypes.string.isRequired, // Add the missing prop type validation
-}
-
-export default RegisterUserCard
+export default AddBooksCard

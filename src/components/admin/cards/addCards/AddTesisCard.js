@@ -11,17 +11,12 @@ import {
   CFormLabel,
   CRow,
 } from '@coreui/react'
-import PropTypes from 'prop-types'
 
-const RegisterUserCard = () => {
+const AddTesisCard = () => {
   const [formValues, setFormValues] = useState({
-    firstName: '',
-    lastName: '',
-    middleName: '',
-    email: '',
-    birthYear: '',
-    password: '',
-    employeeId: '',
+    year: '',
+    project_name: '',
+    careers_id: '',
   })
 
   const handleInputChange = (e) => {
@@ -34,38 +29,22 @@ const RegisterUserCard = () => {
     // Here you can implement your logic to submit the form values
     console.log(formValues)
     setFormValues({
-      firstName: '',
-      lastName: '',
-      middleName: '',
-      email: '',
-      birthYear: '',
-      password: '',
-      employeeId: '',
-    })
-  }
-
-  const handleCancel = () => {
-    setFormValues({
-      firstName: '',
-      lastName: '',
-      middleName: '',
-      email: '',
-      birthYear: '',
-      password: '',
-      employeeId: '',
+      year: '',
+      project_name: '',
+      careers_id: '',
     })
   }
 
   return (
     <CCard>
       <CCardHeader>
-        <CCardTitle className="pt-2">Agregar Usuario</CCardTitle>
+        <CCardTitle className="pt-2">Agregar Tesis</CCardTitle>
       </CCardHeader>
       <CCardBody>
         <CForm onSubmit={handleSubmit}>
           <CRow>
             <CCol xs={12} md={4}>
-              <CFormLabel>Nombre</CFormLabel>
+              <CFormLabel>Titulo</CFormLabel>
               <CFormInput
                 type="text"
                 name="firstName"
@@ -74,7 +53,7 @@ const RegisterUserCard = () => {
               />
             </CCol>
             <CCol xs={12} md={4}>
-              <CFormLabel>Apellido Paterno</CFormLabel>
+              <CFormLabel>Identificador</CFormLabel>
               <CFormInput
                 type="text"
                 name="lastName"
@@ -82,20 +61,11 @@ const RegisterUserCard = () => {
                 onChange={handleInputChange}
               />
             </CCol>
-            <CCol xs={12} md={4}>
-              <CFormLabel>Apellido Materno</CFormLabel>
-              <CFormInput
-                type="text"
-                name="middleName"
-                value={formValues.middleName}
-                onChange={handleInputChange}
-              />
-            </CCol>
           </CRow>
 
           <CRow>
             <CCol xs={12} md={4}>
-              <CFormLabel>Año de Nacimiento</CFormLabel>
+              <CFormLabel>Año de publicacion</CFormLabel>
               <CFormInput
                 type="number"
                 name="birthYear"
@@ -105,7 +75,7 @@ const RegisterUserCard = () => {
             </CCol>
 
             <CCol xs={12} md={4}>
-              <CFormLabel>Matrícula de Empleado</CFormLabel>
+              <CFormLabel>Especialidad</CFormLabel>
               <CFormInput
                 type="text"
                 name="employeeId"
@@ -114,31 +84,8 @@ const RegisterUserCard = () => {
               />
             </CCol>
           </CRow>
-          <CRow>
-            <CCol xs={12} md={4}>
-              <CFormLabel>Correo</CFormLabel>
-              <CFormInput
-                type="email"
-                name="email"
-                value={formValues.email}
-                onChange={handleInputChange}
-              />
-            </CCol>
-            <CCol xs={12} md={4}>
-              <CFormLabel>Contraseña</CFormLabel>
-              <CFormInput
-                type="password"
-                name="password"
-                value={formValues.password}
-                onChange={handleInputChange}
-              />
-            </CCol>
-          </CRow>
           <CRow className="pt-4 ">
             <CCol className="d-flex justify-content-end gap-4">
-              <CButton type="button" color="secondary" onClick={handleCancel}>
-                Cancelar
-              </CButton>
               <CButton type="submit" color="primary" className="mr-2">
                 Crear
               </CButton>
@@ -150,8 +97,4 @@ const RegisterUserCard = () => {
   )
 }
 
-RegisterUserCard.propTypes = {
-  data: PropTypes.string.isRequired, // Add the missing prop type validation
-}
-
-export default RegisterUserCard
+export default AddTesisCard

@@ -85,6 +85,7 @@ const UserListCard = () => {
                 <td>{user.birthYear}</td>
                 <td>{user.employeeId}</td>
                 <td>
+                  <CButton color="primary">Actualizar</CButton>
                   <CButton color="danger">Eliminar</CButton>
                 </td>
               </CTableRow>
