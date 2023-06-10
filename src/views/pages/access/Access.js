@@ -16,7 +16,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
-const Login = () => {
+const Access = () => {
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -26,8 +26,8 @@ const Login = () => {
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>
-                    <h1>INICIAR SESIÓN</h1>
-                    <p className="text-medium-emphasis">Inicie sesión para ingresar</p>
+                    <h1>Registro</h1>
+                    <p className="text-medium-emphasis">Registrese para continuar</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
@@ -46,13 +46,8 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="#3C4B64" className="px-4">
-                          Ingresar
-                        </CButton>
-                      </CCol>
-                      <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
-                          ¿Olvidó su contraseña?
+                        <CButton color="primary" className="px-4">
+                          Continuar
                         </CButton>
                       </CCol>
                     </CRow>
@@ -77,4 +72,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Access

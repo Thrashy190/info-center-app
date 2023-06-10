@@ -13,7 +13,7 @@ import 'simplebar/dist/simplebar.min.css'
 // Es poner entre _adminNav y _userNav
 
 //import navigation from '../_userNav'
-import navigation from '../../_userNav'
+import navigation from '../../_adminNav'
 
 import its from '../../assets/brand/its.png'
 
