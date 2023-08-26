@@ -1,14 +1,13 @@
 import React from 'react'
+import { CContainer } from '@coreui/react'
 import { AppSidebar, AppFooter, AppHeader } from '../components/general'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { CContainer } from '@coreui/react'
+import navigationAdmin from '../_adminNav'
 
-import navigationUser from '../_userNav'
-
-const DefaultLayout = () => {
+const AdminLayout = () => {
   return (
     <div>
-      <AppSidebar navigation={navigationUser} />
+      <AppSidebar navigation={navigationAdmin} />
       <div className="wrapper d-flex flex-column min-vh-100 bg-light">
         <AppHeader />
         <div className="body flex-grow-1 px-3">
@@ -22,4 +21,4 @@ const DefaultLayout = () => {
   )
 }
 
-export default DefaultLayout
+export default AdminLayout

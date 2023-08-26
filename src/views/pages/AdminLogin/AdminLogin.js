@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -12,37 +12,34 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-  CFormSelect,
+  CImage,
+  CCardTitle,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import its from '../../../assets/brand/its.png'
 
 const Access = () => {
+  const navigate = useNavigate()
+
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleLogin = () => {
+    navigate(`/dashboard-admin`)
+  }
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
-        <CRow className="justify-content-center">
+        <CRow className="d-flex justify-content-center">
           <CCol md={8}>
-            <CCardGroup>
+            <CCardGroup className="d-flex flex-column-reverse flex-lg-row">
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>
-                    <h1>REGISTRO</h1>
-                    <p className="text-medium-emphasis">Regístrese para continuar</p>
-                    <CFormSelect size="sm" className="mb-3" aria-label="Small select example">
-                      <option>Genero</option>
-                      <option value="1">Masculino</option>
-                      <option value="2">Femenino</option>
-                      <option value="3">Prefiero no contestar</option>
-                    </CFormSelect>
-                    <CFormSelect size="sm" className="mb-3" aria-label="Small select example">
-                      <option>Empleado</option>
-                      <option value="1">Alumno</option>
-                      <option value="1">Docente</option>
-                      <option value="2">No docente</option>
-                      <option value="3">Administrativo</option>
-                      <option value="4">Externo</option>
-                    </CFormSelect>
+                    <h1>Iniciar sesion</h1>
+                    <p className="text-medium-emphasis">Ingresa los datos para entrar</p>
                     <CInputGroup className="mb-3">
                       <CFormInput placeholder="Semestre" autoComplete="semestre" />
                     </CInputGroup>
@@ -75,14 +72,10 @@ const Access = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white" style={{ backgroundColor: '#3C4B64', width: '44%' }}>
-                <CCardBody className="text-center">
-                  <div>
-                    <h2>Centro de informacion</h2>
-                    <p>
-                      <img src="../../../../src/assets/brand/its.png" alt="Imagen ITS" />
-                    </p>
-                  </div>
+              <CCard className="text-white" style={{ backgroundColor: '#3C4B64' }}>
+                <CCardBody className="d-flex flex-column align-items-center">
+                  <CImage fluid src={its} />
+                  <CCardTitle>Centro de Informacíon</CCardTitle>
                 </CCardBody>
               </CCard>
             </CCardGroup>

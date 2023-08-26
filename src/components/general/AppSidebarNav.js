@@ -2,20 +2,17 @@ import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import { CBadge } from '@coreui/react'
-
 export const AppSidebarNav = ({ items }) => {
+  const logOut = () => {
+    console.log('Log out')
+  }
+
   const location = useLocation()
   const navLink = (name, icon, badge) => {
     return (
       <>
         {icon && icon}
         {name && name}
-        {badge && (
-          <CBadge color={badge.color} className="ms-auto">
-            {badge.text}
-          </CBadge>
-        )}
       </>
     )
   }
@@ -23,6 +20,25 @@ export const AppSidebarNav = ({ items }) => {
   const navItem = (item, index) => {
     const { component, name, badge, icon, ...rest } = item
     const Component = component
+
+    if (name === 'Cerrar sesión') {
+      return (
+        <Component
+          onClick={() => {
+            logOut()
+          }}
+          {...(rest.to &&
+            !rest.items && {
+              component: NavLink,
+            })}
+          key={index}
+          {...rest}
+        >
+          {navLink(name, icon)}
+        </Component>
+      )
+    }
+
     return (
       <Component
         {...(rest.to &&
@@ -36,6 +52,7 @@ export const AppSidebarNav = ({ items }) => {
       </Component>
     )
   }
+
   const navGroup = (item, index) => {
     const { component, name, icon, to, ...rest } = item
     const Component = component
@@ -55,10 +72,7 @@ export const AppSidebarNav = ({ items }) => {
   }
 
   return (
-    <React.Fragment>
-      {items &&
-        items.map((item, index) => (item.items ? navGroup(item, index) : navItem(item, index)))}
-    </React.Fragment>
+    <React.Fragment>{items && items.map((item, index) => navItem(item, index))}</React.Fragment>
   )
 }
 
