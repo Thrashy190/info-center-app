@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { CRow, CCol, CContainer, CSpinner } from '@coreui/react'
 import BookSearcher from '../../../components/shared/buscadores/BookSearcher'
 import Pagination from '../../../components/shared/pagination/Pagination'
@@ -7,10 +7,8 @@ import BooksCards from '../../../components/user/cards/BooksCards'
 import { useFetchForPagination } from 'src/hooks'
 
 const Libros = () => {
-  const [page, setPage] = useState(1)
-  const [isLoading, data] = useFetchForPagination(
-    `http://localhost:8080/public/books/${page}`,
-    page,
+  const [isLoading, data, setPage, page] = useFetchForPagination(
+    'http://localhost:8080/public/books',
   )
 
   return (

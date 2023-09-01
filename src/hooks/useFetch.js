@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 
-const useFetchForPagination = (url) => {
-  const [page, setPage] = useState(1)
+const useFetchForPagination = (url, page) => {
   const [data, setData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`${url}/${page}`, {
+    fetch(url, {
       method: 'GET', // Use the appropriate HTTP method
       headers: {
         Origin: 'http://localhost:3000', // The origin of your frontend
@@ -16,11 +15,12 @@ const useFetchForPagination = (url) => {
       .then((data) => {
         setData(data.data)
         setIsLoading(false)
+        console.log(data.data)
       })
       .catch((err) => console.log(err))
   }, [page])
 
-  return [isLoading, data, setPage, page]
+  return [isLoading, data]
 }
 
 export default useFetchForPagination

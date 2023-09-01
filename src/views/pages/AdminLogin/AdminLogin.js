@@ -19,15 +19,19 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import its from '../../../assets/brand/its.png'
+import { useAuth } from '../../../context/AuthProvider'
 
 const Access = () => {
   const navigate = useNavigate()
 
-  const [username, setUsername] = useState('')
+  const { login } = useAuth()
+
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleLogin = () => {
-    navigate(`/dashboard-admin`)
+    login({ email, password })
+    //navigate(`/dashboard-admin`)
   }
 
   return (
@@ -45,13 +49,20 @@ const Access = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Usuario" autoComplete="username" />
+                      <CFormInput
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        placeholder="Email"
+                        autoComplete="Email"
+                      />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
                         <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
                       <CFormInput
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder="Contraseña"
                         autoComplete="current-password"
