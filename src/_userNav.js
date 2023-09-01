@@ -7,6 +7,7 @@ import {
   cilFolderOpen,
   cilBook,
   cilBookmark,
+  cilAccountLogout,
 } from '@coreui/icons'
 import { CNavItem, CNavTitle } from '@coreui/react'
 
@@ -54,6 +55,12 @@ const _userNav = [
     name: 'Contactanos',
     to: '/dashboard/contacto',
     icon: <CIcon icon={cilPhone} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Cerrar sesión',
+    to: '/home',
+    icon: <CIcon icon={cilAccountLogout} customClassName="nav-icon" />,
   },
 ]
 

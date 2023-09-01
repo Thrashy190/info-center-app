@@ -1,40 +1,46 @@
-import React from 'react'
-import { CRow, CCol, CContainer } from '@coreui/react'
+import React, { useState, useEffect } from 'react'
+import { CRow, CCol, CContainer, CSpinner } from '@coreui/react'
 import BookSearcher from '../../../components/shared/buscadores/BookSearcher'
 import Pagination from '../../../components/shared/pagination/Pagination'
 import BooksCards from '../../../components/user/cards/BooksCards'
 
-const arr = [
-  { nombre: 'Titulo 1', autor: 'nombre', id: 1 },
-  { nombre: 'Titulo 2', autor: 'nombre', id: 2 },
-  { nombre: 'Titulo 3', autor: 'nombre', id: 3 },
-]
+import { useFetchForPagination } from 'src/hooks'
 
 const Libros = () => {
+  const [page, setPage] = useState(1)
+  const [isLoading, data] = useFetchForPagination(
+    `http://localhost:8080/public/books/${page}`,
+    page,
+  )
+
   return (
     <>
-      <CContainer>
-        {/* este es para el filtro*/}
-        <CRow>
-          <CCol xs={12} lg={5} xl={4} xxl={3}>
-            <BookSearcher />
-          </CCol>
-          <CCol xs={12} lg={7} xl={8} xxl={9}>
-            {/* este es para cada tarjeta*/}
-            {arr.map((data) => {
-              return (
-                <CRow key={data.id}>
-                  <CCol>
-                    <BooksCards data={data} />
-                  </CCol>
-                </CRow>
-              )
-            })}
-          </CCol>
-        </CRow>
-      </CContainer>
-      {/* aqui esta la pagincación */}
-      <Pagination />
+      {isLoading ? (
+        <CSpinner color="primary" />
+      ) : (
+        <>
+          <CContainer>
+            <CRow>
+              <CCol xs={12} lg={5} xl={4} xxl={3}>
+                <BookSearcher />
+              </CCol>
+              <CCol xs={12} lg={7} xl={8} xxl={9}>
+                {data.books.map((book) => {
+                  return (
+                    <CRow key={book.id}>
+                      <CCol>
+                        <BooksCards data={book} />
+                      </CCol>
+                    </CRow>
+                  )
+                })}
+              </CCol>
+            </CRow>
+          </CContainer>
+          {/* aqui esta la pagincación */}
+          <Pagination page={page} setPage={setPage} data={data} />
+        </>
+      )}
     </>
   )
 }

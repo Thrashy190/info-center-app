@@ -14,6 +14,7 @@ import {
   CRow,
   CImage,
   CCardTitle,
+  CFormSelect,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
@@ -41,30 +42,24 @@ const Access = () => {
                     <h1>Iniciar sesion</h1>
                     <p className="text-medium-emphasis">Ingresa los datos para entrar</p>
                     <CInputGroup className="mb-3">
-                      <CFormInput placeholder="Semestre" autoComplete="semestre" />
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormInput placeholder="Usuario" autoComplete="username" />
                     </CInputGroup>
-                    <CFormSelect size="sm" className="mb-3" aria-label="Small select example">
-                      <option>Carrera</option>
-                      <option value="1">Informatica</option>
-                      <option value="2">Administración</option>
-                      <option value="3">Electrica</option>
-                      <option value="4">Electronica</option>
-                      <option value="5">Mecanica</option>
-                      <option value="6">Materiales</option>
-                      <option value="7">Sistemas computacionales</option>
-                      <option value="8">Mecatronica</option>
-                      <option value="9">Ing. gestion empresarial</option>
-                      <option value="10">Ingenieria industrial</option>
-                      <option value="11">Ing. en sistemas </option>
-                      <option value="13">Computacionales</option>
-                      <option value="14">Ingenieria mecanica</option>
-                      <option value="15">Ingenieria en electronica</option>
-                      <option value="16">Ingenieria electrica</option>
-                      <option value="17">Ingenieria en materiales</option>
-                    </CFormSelect>
+                    <CInputGroup className="mb-4">
+                      <CInputGroupText>
+                        <CIcon icon={cilLockLocked} />
+                      </CInputGroupText>
+                      <CFormInput
+                        type="password"
+                        placeholder="Contraseña"
+                        autoComplete="current-password"
+                      />
+                    </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="#3C4B64" className="px-4">
+                        <CButton color="primary" onClick={handleLogin}>
                           Ingresar
                         </CButton>
                       </CCol>
@@ -74,8 +69,8 @@ const Access = () => {
               </CCard>
               <CCard className="text-white" style={{ backgroundColor: '#3C4B64' }}>
                 <CCardBody className="d-flex flex-column align-items-center">
-                  <CImage fluid src={its} />
                   <CCardTitle>Centro de Informacíon</CCardTitle>
+                  <CImage fluid src={its} />
                 </CCardBody>
               </CCard>
             </CCardGroup>

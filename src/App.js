@@ -14,6 +14,7 @@ const AdminLayout = React.lazy(() => import('./layout/AdminLayout'))
 
 // Pages
 const AdminLogin = React.lazy(() => import('./views/pages/AdminLogin/AdminLogin'))
+const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 
 //Rutas usuarios
@@ -41,8 +42,8 @@ const App = () => {
     <div>
       <Suspense fallback={loading}>
         <Routes>
-          <Route index element={<div>Login usuario </div>} />
-          <Route path="home" element={<div>Login usuario </div>} />
+          <Route index element={<Login />} />
+          <Route path="home" element={<Login />} />
           <Route path="login" element={<AdminLogin />} />
           <Route path="dashboard" element={<DefaultLayout />}>
             <Route path="" element={<Inicio />} />
@@ -52,7 +53,7 @@ const App = () => {
             <Route path="solicitudes" element={<Solicitudes />} />
             <Route path="contacto" element={<Contacto />} />
           </Route>
-          <Route path="admin" element={<AdminLayout />}>
+          <Route path="dashboard-admin" element={<AdminLayout />}>
             <Route path="" element={<Dashboard />} />
             <Route path="libros-admin" element={<LibrosAdmin />} />
             <Route path="tesis-admin" element={<TesisAdmin />} />
@@ -62,7 +63,7 @@ const App = () => {
             <Route path="usuarios" element={<Usuarios />} />
             <Route path="solicitudes-admin" element={<SolicitudesAdmin />} />
           </Route>
-          <Route path="*" element={<div>404</div>} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </Suspense>
     </div>
