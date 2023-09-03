@@ -7,10 +7,8 @@ import ProjectsCards from '../../../components/user/cards/ProjectsCards'
 import { useFetchForPagination } from 'src/hooks'
 
 const Residencia = () => {
-  const [page, setPage] = useState(1)
-  const [isLoading, data] = useFetchForPagination(
-    `http://localhost:8080/public/projects/${page}`,
-    page,
+  const [isLoading, data, setPage, page] = useFetchForPagination(
+    `http://localhost:8080/public/projects`,
   )
 
   return (
@@ -38,6 +36,7 @@ const Residencia = () => {
             </CRow>
           </CContainer>
           {/* aqui esta la pagincación */}
+          <Pagination page={page} setPage={setPage} data={data} />
         </>
       )}
     </>

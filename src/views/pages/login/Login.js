@@ -95,68 +95,64 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-light min-vh-100 d-flex flex-column">
+    <div className="bg-light min-vh-100 d-flex  flex-row  ">
       <CContainer>
-        <div className="d-flex justify-content-end pt-3">
-          <CButton color="primary" onClick={handleToAdmin}>
-            Adminitracion
-          </CButton>
-        </div>
+        <CRow className="vh-100 justify-content-center align-items-center">
+          <CCol md={8}>
+            <CCardGroup className="d-flex flex-column-reverse flex-lg-row">
+              <CCard className="p-4">
+                <CCardBody>
+                  <CForm>
+                    <h1>Bienvenidos al centro de informacion</h1>
+                    <p className="text-medium-emphasis">Seleccione sus datos</p>
+                    <CInputGroup className="mb-3">
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormSelect
+                        onChange={handleSelect}
+                        value={type}
+                        aria-label="Default select example"
+                      >
+                        <option>Abre para ver las opciones</option>
+                        <option value="students">Alumnos</option>
+                        <option value="employees">Empleados</option>
+                      </CFormSelect>
+                    </CInputGroup>
+                    {type === 'students' ? (
+                      <>
+                        <SelectList data={careers} defaultText={'Carrera'} />
+                        <SelectList data={semestres} defaultText={'Semestre'} />
+                      </>
+                    ) : (
+                      <SelectList data={departments} defaultText={'Departamento'} />
+                    )}
+                    <SelectList data={genres} defaultText={'Genero'} />
+                    <CRow>
+                      <CCol xs={6}>
+                        <CButton color="primary" onClick={handleLogin}>
+                          Ingresar
+                        </CButton>
+                      </CCol>
+                    </CRow>
+                  </CForm>
+                </CCardBody>
+              </CCard>
+              <CCard className="text-white p-4" style={{ backgroundColor: '#3C4B64' }}>
+                <CCardBody className="d-flex flex-column align-items-center">
+                  <CCardTitle>Centro de Informacíon</CCardTitle>
+                  <CImage fluid src={its} />
+                  <div className="d-flex justify-content-end">
+                    <CButton color="primary" onClick={handleToAdmin}>
+                      Adminitracíon
+                    </CButton>
+                  </div>
+                </CCardBody>
+              </CCard>
+            </CCardGroup>
+          </CCol>
+        </CRow>
       </CContainer>
-      <div className="d-flex  flex-row  ">
-        <CContainer>
-          <CRow className="vh-100 justify-content-center align-items-center">
-            <CCol md={8}>
-              <CCardGroup className="d-flex flex-column-reverse flex-lg-row">
-                <CCard className="p-4">
-                  <CCardBody>
-                    <CForm>
-                      <h1>Entrar a la plataforma</h1>
-                      <p className="text-medium-emphasis">Seleccione sus datos</p>
-                      <CInputGroup className="mb-3">
-                        <CInputGroupText>
-                          <CIcon icon={cilUser} />
-                        </CInputGroupText>
-                        <CFormSelect
-                          onChange={handleSelect}
-                          value={type}
-                          aria-label="Default select example"
-                        >
-                          <option>Abre para ver las opciones</option>
-                          <option value="students">Alumnos</option>
-                          <option value="employees">Empleados</option>
-                        </CFormSelect>
-                      </CInputGroup>
-                      {type === 'students' ? (
-                        <>
-                          <SelectList data={careers} defaultText={'Carrera'} />
-                          <SelectList data={semestres} defaultText={'Semestre'} />
-                        </>
-                      ) : (
-                        <SelectList data={departments} defaultText={'Departamento'} />
-                      )}
-                      <SelectList data={genres} defaultText={'Genero'} />
-                      <CRow>
-                        <CCol xs={6}>
-                          <CButton color="primary" onClick={handleLogin}>
-                            Ingresar
-                          </CButton>
-                        </CCol>
-                      </CRow>
-                    </CForm>
-                  </CCardBody>
-                </CCard>
-                <CCard className="text-white" style={{ backgroundColor: '#3C4B64' }}>
-                  <CCardBody className="d-flex flex-column align-items-center">
-                    <CCardTitle>Centro de Informacíon</CCardTitle>
-                    <CImage fluid src={its} />
-                  </CCardBody>
-                </CCard>
-              </CCardGroup>
-            </CCol>
-          </CRow>
-        </CContainer>
-      </div>
     </div>
   )
 }

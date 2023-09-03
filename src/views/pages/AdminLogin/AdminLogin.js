@@ -34,6 +34,10 @@ const Access = () => {
     //navigate(`/dashboard-admin`)
   }
 
+  const handleToUser = () => {
+    navigate(`/`)
+  }
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -69,16 +73,21 @@ const Access = () => {
                       />
                     </CInputGroup>
                     <CRow>
-                      <CCol xs={6}>
+                      <CCol xs={3}>
                         <CButton color="primary" onClick={handleLogin}>
                           Ingresar
+                        </CButton>
+                      </CCol>
+                      <CCol xs={3}>
+                        <CButton color="secondary" onClick={handleToUser}>
+                          Volver
                         </CButton>
                       </CCol>
                     </CRow>
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white" style={{ backgroundColor: '#3C4B64' }}>
+              <CCard className="text-white p-4" style={{ backgroundColor: '#3C4B64' }}>
                 <CCardBody className="d-flex flex-column align-items-center">
                   <CCardTitle>Centro de Informacíon</CCardTitle>
                   <CImage fluid src={its} />
