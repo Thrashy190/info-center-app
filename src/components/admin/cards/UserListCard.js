@@ -11,11 +11,21 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
+import PropTypes from 'prop-types'
 
 const UserListCard = () => {
   const [users, setUsers] = useState([
     {
       id: 1,
+      name: 'John',
+      lastName: 'Doe',
+      middleName: 'Doe',
+      email: 'diego@diego.com',
+      birthYear: 2002,
+      employeeId: 12312,
+    },
+    {
+      id: 2,
       name: 'John',
       lastName: 'Doe',
       middleName: 'Doe',
@@ -75,6 +85,7 @@ const UserListCard = () => {
                 <td>{user.birthYear}</td>
                 <td>{user.employeeId}</td>
                 <td>
+                  <CButton color="primary">Actualizar</CButton>
                   <CButton color="danger">Eliminar</CButton>
                 </td>
               </CTableRow>
@@ -84,6 +95,10 @@ const UserListCard = () => {
       </CCardBody>
     </CCard>
   )
+}
+
+UserListCard.propTypes = {
+  data: PropTypes.string.isRequired, // Add the missing prop type validation
 }
 
 export default UserListCard

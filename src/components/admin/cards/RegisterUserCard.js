@@ -11,6 +11,7 @@ import {
   CFormLabel,
   CRow,
 } from '@coreui/react'
+import PropTypes from 'prop-types'
 
 const RegisterUserCard = () => {
   const [formValues, setFormValues] = useState({
@@ -147,6 +148,10 @@ const RegisterUserCard = () => {
       </CCardBody>
     </CCard>
   )
+}
+
+RegisterUserCard.propTypes = {
+  data: PropTypes.string.isRequired, // Add the missing prop type validation
 }
 
 export default RegisterUserCard

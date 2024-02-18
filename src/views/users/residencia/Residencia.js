@@ -1,41 +1,42 @@
-import React from 'react'
-import { CRow, CCol, CContainer } from '@coreui/react'
-
-import ProjectsSearcher from '../../../components/buscadores/ProjectsSearcher'
-import Pagination from '../../../components/pagination/Pagination'
+import React, { useState } from 'react'
+import { CRow, CCol, CContainer, CSpinner } from '@coreui/react'
+import ProjectsSearcher from '../../../components/shared/buscadores/ProjectsSearcher'
+import Pagination from '../../../components/shared/pagination/Pagination'
 import ProjectsCards from '../../../components/user/cards/ProjectsCards'
 
-const arr = [
-  { nombre: 'Titulo 1', especialidad: 'Sistemas', id: 1 },
-  { nombre: 'Titulo 2', especialidad: 'Informatica', id: 2 },
-  { nombre: 'Titulo 3', especialidad: 'Gestion', id: 3 },
-]
+import { useFetchForPagination } from 'src/hooks'
 
 const Residencia = () => {
+  const [isLoading, data, setPage, page] = useFetchForPagination(`/public/projects`)
+
   return (
     <>
-      <CContainer>
-        {/* este es para el filtro*/}
-        <CRow>
-          <CCol xs={12} lg={5} xl={4} xxl={3}>
-            <ProjectsSearcher />
-          </CCol>
-          <CCol xs={12} lg={7} xl={8} xxl={9}>
-            {/* este es para cada tarjeta*/}
-            {arr.map((data) => {
-              return (
-                <CRow key={data.id}>
-                  <CCol>
-                    <ProjectsCards data={data} />
-                  </CCol>
-                </CRow>
-              )
-            })}
-          </CCol>
-        </CRow>
-      </CContainer>
-      {/* aqui esta la pagincación */}
-      <Pagination />
+      {isLoading ? (
+        <CSpinner color="primary" />
+      ) : (
+        <>
+          <CContainer>
+            <CRow>
+              <CCol xs={12} lg={5} xl={4} xxl={3}>
+                <ProjectsSearcher />
+              </CCol>
+              <CCol xs={12} lg={7} xl={8} xxl={9}>
+                {data.projects.map((project) => {
+                  return (
+                    <CRow key={project.id}>
+                      <CCol>
+                        <ProjectsCards data={project} />
+                      </CCol>
+                    </CRow>
+                  )
+                })}
+              </CCol>
+            </CRow>
+          </CContainer>
+          {/* aqui esta la pagincación */}
+          <Pagination page={page} setPage={setPage} data={data} />
+        </>
+      )}
     </>
   )
 }

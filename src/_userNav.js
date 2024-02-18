@@ -7,6 +7,7 @@ import {
   cilFolderOpen,
   cilBook,
   cilBookmark,
+  cilAccountLogout,
 } from '@coreui/icons'
 import { CNavItem, CNavTitle } from '@coreui/react'
 
@@ -14,7 +15,7 @@ const _userNav = [
   {
     component: CNavItem,
     name: 'Inicio',
-    to: '/inicio',
+    to: '/dashboard',
     icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
   },
   {
@@ -24,19 +25,19 @@ const _userNav = [
   {
     component: CNavItem,
     name: 'Libros',
-    to: '/libros',
+    to: '/dashboard/libros',
     icon: <CIcon icon={cilBook} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Tesis',
-    to: '/tesis',
+    to: '/dashboard/tesis',
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Proyectos de residencia',
-    to: '/residencias',
+    to: '/dashboard/residencias',
     icon: <CIcon icon={cilFolderOpen} customClassName="nav-icon" />,
   },
   {
@@ -45,15 +46,21 @@ const _userNav = [
   },
   {
     component: CNavItem,
-    name: 'Solicitud de libros',
-    to: '/solicitudes',
+    name: 'Solicitud de informacíon',
+    to: '/dashboard/solicitudes',
     icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Contactanos',
-    to: '/contacto',
+    to: '/dashboard/contacto',
     icon: <CIcon icon={cilPhone} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Cerrar sesión',
+    to: '/home',
+    icon: <CIcon icon={cilAccountLogout} customClassName="nav-icon" />,
   },
 ]
 

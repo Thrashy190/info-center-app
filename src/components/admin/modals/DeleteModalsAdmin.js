@@ -8,6 +8,7 @@ import {
   CModalHeader,
   CModalTitle,
 } from '@coreui/react'
+import PropTypes from 'prop-types'
 
 const DeleteModalsAdmin = ({ type, id, visibleDelete, setVisibleDelete }) => {
   const [active, setActive] = useState(false)
@@ -38,6 +39,13 @@ const DeleteModalsAdmin = ({ type, id, visibleDelete, setVisibleDelete }) => {
       </CModalFooter>
     </CModal>
   )
+}
+
+DeleteModalsAdmin.propTypes = {
+  type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  visibleDelete: PropTypes.bool.isRequired,
+  setVisibleDelete: PropTypes.func.isRequired,
 }
 
 export default DeleteModalsAdmin

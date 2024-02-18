@@ -23,12 +23,19 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilPlus } from '@coreui/icons'
 
+import Notification from 'src/components/shared/notifications/Notifications'
+
 const Solicitudes = () => {
   const [visible, setVisible] = useState(false)
-
+  const [email, setEmail] = useState('')
   const [description, setDescription] = useState('')
   const [bookInfo, setBookInfo] = useState({})
   const [bookList, setBookList] = useState([])
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: '',
+    type: '',
+  })
 
   const deleteBookFromList = (nombre) => {
     const copia = [...bookList]
@@ -38,6 +45,8 @@ const Solicitudes = () => {
   }
 
   const addBooktoList = () => {
+    bookInfo.year = parseInt(bookInfo.year)
+
     setBookList([...bookList, bookInfo])
   }
 
@@ -45,8 +54,50 @@ const Solicitudes = () => {
     setDescription(data)
   }
 
+  const handleEmail = (data) => {
+    setEmail(data)
+  }
+
   const handleBookInfo = (e) => {
     setBookInfo({ ...bookInfo, [e.target.name]: e.target.value })
+  }
+
+  const createRequest = async (data) => {
+    let response
+    const { description, request_info, email } = data
+
+    console.log(JSON.stringify(data))
+    try {
+      response = await fetch(`${process.env.REACT_APP_BASE_URL}/public/requests/request`, {
+        method: 'POST',
+        headers: {
+          Origin: 'http://localhost:3000',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+    } catch (error) {
+      setNotify({
+        isOpen: true,
+        message: error,
+        type: 'danger',
+      })
+    }
+    console.log(response)
+
+    if (response?.ok) {
+      setNotify({
+        isOpen: true,
+        message: 'Solicitud enviada con exito',
+        type: 'success',
+      })
+    } else {
+      setNotify({
+        isOpen: true,
+        message: 'Error al enviar la solicitud',
+        type: 'danger',
+      })
+    }
   }
 
   return (
@@ -59,7 +110,24 @@ const Solicitudes = () => {
         </CRow>
         <CRow className="pb-4 text-medium-emphasis">
           <CCol>
-            <h4>Solicita libros que no se encuentren en la lista del centro de informacion</h4>
+            <h4>
+              Solicita informacion o referencias de libros en especifico o que no se encuentren en
+              la lista del centro de informacion
+            </h4>
+          </CCol>
+        </CRow>
+        <CRow className="pb-4 text-medium-emphasis">
+          <CCol>
+            <CForm>
+              <CFormInput
+                type="email"
+                id="exampleFormControlInput1"
+                label="Email"
+                placeholder="name@ejemplo.com"
+                aria-describedby="exampleFormControlInputHelpInline"
+                onChange={(e) => handleEmail(e.target.value)}
+              />
+            </CForm>
           </CCol>
         </CRow>
         <CRow className="pb-4 text-medium-emphasis">
@@ -79,10 +147,10 @@ const Solicitudes = () => {
             <h4>Agrega informacion sobre los libros aqui:</h4>
           </CCol>
         </CRow>
-        <CRow className="pb-4 text-medium-emphasis">
-          {bookList.map((book) => {
+        <CRow className="pb-2 text-medium-emphasis">
+          {bookList.map((book, index) => {
             return (
-              <CCol xs={12} md={6} xxl={3} className="pb-2" key={this}>
+              <CCol xs={12} sm={6} xxl={3} className="pb-2" key={index}>
                 <CCard style={{ width: '100%', height: '18rem' }}>
                   <CCardHeader className="d-flex justify-content-end">
                     <CCloseButton onClick={() => deleteBookFromList(book.nombre)} />
@@ -90,9 +158,9 @@ const Solicitudes = () => {
 
                   <CCardBody className="d-flex flex-column">
                     <CCardTitle className="pb-1">Libro:</CCardTitle>
-                    <CCardSubtitle className="pb-4">{book.titulo} </CCardSubtitle>
+                    <CCardSubtitle className="pb-4">{book.book_name} </CCardSubtitle>
                     <CCardTitle className="pb-1">Autor:</CCardTitle>
-                    <CCardSubtitle className="pb-4"> {book.autor} </CCardSubtitle>
+                    <CCardSubtitle className="pb-4"> {book.author} </CCardSubtitle>
                     <CCardTitle className="pb-1">Fecha de publicacion:</CCardTitle>
                     <CCardSubtitle className="pb-4"> {book.year} </CCardSubtitle>
                   </CCardBody>
@@ -141,16 +209,16 @@ const Solicitudes = () => {
                 <CModalBody className="d-grid gap-4 my-4">
                   <CFormInput
                     type="text"
-                    id="titulo"
-                    name="titulo"
+                    id="book_name"
+                    name="book_name"
                     floatingLabel="Nombre del libro"
                     placeholder="Nombre del libro"
                     onChange={(e) => handleBookInfo(e)}
                   />
                   <CFormInput
                     type="text"
-                    id="autor"
-                    name="autor"
+                    id="author"
+                    name="author"
                     floatingLabel="Autor del libro"
                     placeholder="Autor del libro"
                     onChange={(e) => handleBookInfo(e)}
@@ -179,18 +247,21 @@ const Solicitudes = () => {
             </>
           )}
         </CRow>
-        <CRow className="pt-4">
+        <CRow className="py-4">
           <CCol xs={12} className="d-flex justify-content-center justify-content-lg-end">
             <CButton
               color="dark"
               className="fs-5 w-100"
-              onClick={() => console.log({ descripcion: description, lista: bookList })}
+              onClick={() =>
+                createRequest({ description: description, request_info: bookList, email: email })
+              }
             >
               Enviar solicitud
             </CButton>
           </CCol>
         </CRow>
       </CContainer>
+      <Notification notify={notify} setNotify={setNotify} position={'top'} />
     </>
   )
 }

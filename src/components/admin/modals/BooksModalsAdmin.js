@@ -12,6 +12,7 @@ import {
   CRow,
 } from '@coreui/react'
 import { rangeYear } from '../../../helpers/date'
+import PropTypes from 'prop-types'
 
 const BooksModalsAdmin = ({ visible, setVisible }) => {
   return (
@@ -69,6 +70,10 @@ const BooksModalsAdmin = ({ visible, setVisible }) => {
       </CModalFooter>
     </CModal>
   )
+}
+BooksModalsAdmin.propTypes = {
+  visible: PropTypes.bool.isRequired, // Add the missing prop type validation
+  setVisible: PropTypes.func.isRequired, // Add the missing prop type validation
 }
 
 export default BooksModalsAdmin

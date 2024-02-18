@@ -29,10 +29,7 @@ import {
   cilUserFollow,
 } from '@coreui/icons'
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
-import { DocsExample } from 'src/components'
-
-import WidgetsBrand from './WidgetsBrand'
-import WidgetsDropdown from './WidgetsDropdown'
+import { DocsExample } from '../../components/general/DocsExample'
 
 const Widgets = () => {
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
@@ -41,9 +38,6 @@ const Widgets = () => {
     <CCard className="mb-4">
       <CCardHeader>Widgets</CCardHeader>
       <CCardBody>
-        <DocsExample href="/components/widgets/#cwidgetstatsa">
-          <WidgetsDropdown />
-        </DocsExample>
         <DocsExample href="/components/widgets/#cwidgetstatsb">
           <CRow>
             <CCol xs={12} sm={6} lg={3}>

@@ -11,12 +11,10 @@ import 'simplebar/dist/simplebar.min.css'
 // sidebar nav config
 // Aqui es para cambiar el como se ve el navbar
 // Es poner entre _adminNav y _userNav
+import navigation from '../../_adminNav'
+import its from '../../assets/brand/its.png'
 
-import navigation from '../_userNav'
-
-import its from '../assets/brand/its.png'
-
-const AppSidebar = () => {
+const AppSidebarAdmin = () => {
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
@@ -46,4 +44,4 @@ const AppSidebar = () => {
   )
 }
 
-export default React.memo(AppSidebar)
+export default React.memo(AppSidebarAdmin)

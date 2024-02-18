@@ -13,6 +13,7 @@ import {
 import OptionsCardsMenu from '../menu/OptionsCardsMenu'
 import BooksModalsAdmin from '../modals/BooksModalsAdmin'
 import DeleteModalsAdmin from '../modals/DeleteModalsAdmin'
+import PropTypes from 'prop-types'
 
 const BooksCardsAdmin = ({ data }) => {
   const [visible, setVisible] = useState(false)
@@ -60,6 +61,9 @@ const BooksCardsAdmin = ({ data }) => {
       />
     </CCard>
   )
+}
+BooksCardsAdmin.propTypes = {
+  data: PropTypes.string.isRequired, // Add the missing prop type validation
 }
 
 export default BooksCardsAdmin
