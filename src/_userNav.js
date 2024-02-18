@@ -46,7 +46,7 @@ const _userNav = [
   },
   {
     component: CNavItem,
-    name: 'Solicitud de libros',
+    name: 'Solicitud de informacíon',
     to: '/dashboard/solicitudes',
     icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
   },

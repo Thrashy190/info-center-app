@@ -6,9 +6,7 @@ import TesisCards from '../../../components/user/cards/TesisCards'
 import { useFetchForPagination } from 'src/hooks'
 
 const Tesis = () => {
-  const [isLoading, data, setPage, page] = useFetchForPagination(
-    `http://localhost:8080/public/tesis`,
-  )
+  const [isLoading, data, setPage, page] = useFetchForPagination(`/public/tesis`)
 
   return (
     <>

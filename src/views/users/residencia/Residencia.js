@@ -7,9 +7,7 @@ import ProjectsCards from '../../../components/user/cards/ProjectsCards'
 import { useFetchForPagination } from 'src/hooks'
 
 const Residencia = () => {
-  const [isLoading, data, setPage, page] = useFetchForPagination(
-    `http://localhost:8080/public/projects`,
-  )
+  const [isLoading, data, setPage, page] = useFetchForPagination(`/public/projects`)
 
   return (
     <>

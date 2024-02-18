@@ -21,41 +21,86 @@ const AuthProvider = ({ children }) => {
   }
 
   const login = async (user) => {
-    console.log(JSON.stringify(user))
-    fetch(`http://localhost:8080/public/auth/login`, {
-      method: 'POST', // Use the appropriate HTTP method
-      headers: {
-        Origin: 'http://localhost:3000', // The origin of your frontend
-      },
-      body: {
-        email: 'diego456.dlm77@gmail.com',
-        password: '123123',
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        setCurrentUser(data)
-        setNotify({
-          isOpen: true,
-          message: 'Inicio de sesion exitosa',
-          type: 'success',
-        })
-        //navigate("/dashboard-admin");
+    let response
+
+    try {
+      response = await fetch(`${process.env.REACT_APP_BASE_URL}/public/auth/login`, {
+        method: 'POST',
+        headers: {
+          Origin: 'http://localhost:3000',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
       })
-      .catch((err) => {
-        setNotify({
-          isOpen: true,
-          message: err,
-          type: 'danger',
-        })
+    } catch (error) {
+      setNotify({
+        isOpen: true,
+        message: error,
+        type: 'danger',
       })
+    }
+
+    if (response?.ok) {
+      setCurrentUser(response.json())
+      localStorage.setItem('token', JSON.stringify(response.json()))
+      setNotify({
+        isOpen: true,
+        message: 'Inicio de sesion exitosa',
+        type: 'success',
+      })
+      navigate('/dashboard-admin')
+    } else {
+      setNotify({
+        isOpen: true,
+        message: 'Error al iniciar sesion, verifique sus credenciales',
+        type: 'danger',
+      })
+    }
+  }
+
+  const access = async (data, type) => {
+    let response
+
+    try {
+      // http://localhost:8080/public/access/estudiantes
+      response = await fetch(`${process.env.REACT_APP_BASE_URL}/public/access/${type}`, {
+        method: 'POST',
+        headers: {
+          Origin: 'http://localhost:3000',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+    } catch (error) {
+      setNotify({
+        isOpen: true,
+        message: error,
+        type: 'danger',
+      })
+    }
+
+    if (response?.ok) {
+      setCurrentUser(response.json())
+      setNotify({
+        isOpen: true,
+        message: 'Bienvenido a la plataforma',
+        type: 'success',
+      })
+      navigate('/dashboard')
+    } else {
+      setNotify({
+        isOpen: true,
+        message: 'Error al entrar en la plataforma',
+        type: 'danger',
+      })
+    }
   }
 
   const values = {
     currentUser,
     login,
     logOut,
+    access,
   }
 
   return (

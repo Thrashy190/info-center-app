@@ -20,14 +20,15 @@ import CIcon from '@coreui/icons-react'
 import { useNavigate } from 'react-router-dom'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import its from '../../../assets/brand/its.png'
+import { useAuth } from '../../../context/AuthProvider'
 
-const SelectList = ({ data, defaultText }) => {
+const SelectList = ({ handleInputs, data, defaultText, name }) => {
   return (
     <CInputGroup className="mb-3">
       <CInputGroupText>
         <CIcon icon={cilUser} />
       </CInputGroupText>
-      <CFormSelect aria-label="Default select example">
+      <CFormSelect onChange={handleInputs} name={name} aria-label="Default select example">
         <option>{defaultText}</option>
         {data.map((item, index) => (
           <option key={index} value={item.value}>
@@ -41,17 +42,19 @@ const SelectList = ({ data, defaultText }) => {
 
 const Login = () => {
   const navigate = useNavigate()
+  const { access } = useAuth()
   const [type, setType] = useState('students')
+  const [inputs, setInputs] = useState({})
 
   const careers = [
-    { value: '1', label: 'Ingenieria en sistemas computacionales' },
-    { value: '2', label: 'Ingenieria en electrica' },
-    { value: '3', label: 'Ingenieria en electronica' },
-    { value: '4', label: 'Ingenieria en mecatronica' },
-    { value: '5', label: 'Ingenieria en industrial' },
-    { value: '6', label: 'Ingenieria en gestion empresarial' },
-    { value: '7', label: 'Ingenieria en materiales' },
-    { value: '8', label: 'Ingenieria en mecanica' },
+    { value: 1, label: 'Ingenieria en sistemas computacionales' },
+    { value: 2, label: 'Ingenieria en electrica' },
+    { value: 3, label: 'Ingenieria en electronica' },
+    { value: 4, label: 'Ingenieria en mecatronica' },
+    { value: 5, label: 'Ingenieria en industrial' },
+    { value: 6, label: 'Ingenieria en gestion empresarial' },
+    { value: 7, label: 'Ingenieria en materiales' },
+    { value: 8, label: 'Ingenieria en mecanica' },
   ]
   const departments = [
     { value: '1', label: 'Departamento de sistemas y computacion' },
@@ -61,9 +64,9 @@ const Login = () => {
     { value: '5', label: 'Departamento de gestion empresarial' },
   ]
   const genres = [
-    { value: '1', label: 'Masculino' },
-    { value: '2', label: 'Femenino' },
-    { value: '3', label: 'Otro' },
+    { value: 1, label: 'Masculino' },
+    { value: 2, label: 'Femenino' },
+    { value: 3, label: 'Otro' },
   ]
 
   const semestres = [
@@ -82,12 +85,20 @@ const Login = () => {
     { value: '13', label: '13' },
   ]
 
+  const handleInputs = (e) => {
+    const { name, value } = e.target
+    setInputs({
+      ...inputs,
+      [name]: name == 'genre' ? value : parseInt(value),
+    })
+  }
+
   const handleSelect = (e) => {
     setType(e.target.value)
   }
 
   const handleLogin = () => {
-    navigate(`/dashboard`)
+    access(inputs, type)
   }
 
   const handleToAdmin = () => {
@@ -121,13 +132,42 @@ const Login = () => {
                     </CInputGroup>
                     {type === 'students' ? (
                       <>
-                        <SelectList data={careers} defaultText={'Carrera'} />
-                        <SelectList data={semestres} defaultText={'Semestre'} />
+                        <SelectList
+                          handleInputs={handleInputs}
+                          data={careers}
+                          defaultText={'Carrera'}
+                          name="career_id"
+                        />
+                        <SelectList
+                          handleInputs={handleInputs}
+                          data={semestres}
+                          defaultText={'Semestre'}
+                          name="semester"
+                        />
+                        <SelectList
+                          handleInputs={handleInputs}
+                          data={genres}
+                          defaultText={'Genero'}
+                          name="genre"
+                        />
                       </>
                     ) : (
-                      <SelectList data={departments} defaultText={'Departamento'} />
+                      <>
+                        <SelectList
+                          handleInputs={handleInputs}
+                          data={departments}
+                          defaultText={'Departamento'}
+                          name="department_id"
+                        />
+                        <SelectList
+                          handleInputs={handleInputs}
+                          data={genres}
+                          defaultText={'Genero'}
+                          name="genre"
+                        />
+                      </>
                     )}
-                    <SelectList data={genres} defaultText={'Genero'} />
+
                     <CRow>
                       <CCol xs={6}>
                         <CButton color="primary" onClick={handleLogin}>
@@ -144,7 +184,7 @@ const Login = () => {
                   <CImage fluid src={its} />
                   <div className="d-flex justify-content-end">
                     <CButton color="primary" onClick={handleToAdmin}>
-                      Adminitracíon
+                      Administracíon
                     </CButton>
                   </div>
                 </CCardBody>

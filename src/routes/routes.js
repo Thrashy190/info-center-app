@@ -4,23 +4,23 @@ import React from 'react'
 
 //Rutas usuarios
 
-const Inicio = React.lazy(() => import('./views/users/inicio/Inicio'))
-const Libros = React.lazy(() => import('./views/users/libros/Libros'))
-const Tesis = React.lazy(() => import('./views/users/tesis/Tesis'))
-const Residencias = React.lazy(() => import('./views/users/residencia/Residencia'))
-const Solicitudes = React.lazy(() => import('./views/users//solicitudes/Solicitudes'))
-const Contacto = React.lazy(() => import('./views/users/contacto/Contacto'))
+const Inicio = React.lazy(() => import('../views/users/inicio/Inicio'))
+const Libros = React.lazy(() => import('../views/users/libros/Libros'))
+const Tesis = React.lazy(() => import('../views/users/tesis/Tesis'))
+const Residencias = React.lazy(() => import('../views/users/residencia/Residencia'))
+const Solicitudes = React.lazy(() => import('../views/users/solicitudes/Solicitudes'))
+const Contacto = React.lazy(() => import('../views/users/contacto/Contacto'))
 
 //Rutas admin
 
-const Dashboard = React.lazy(() => import('./views/admin/dashboard/Dashboard'))
-const LibrosAdmin = React.lazy(() => import('./views/admin/libros/Libros'))
-const TesisAdmin = React.lazy(() => import('./views/admin/tesis/Tesis'))
-const ResidenciasAdmin = React.lazy(() => import('./views/admin/residencia/Residencia'))
-const Agregar = React.lazy(() => import('./views/admin/agregar/Agregar'))
-const Estadisticas = React.lazy(() => import('./views/admin/estadisticas/Estadisticas'))
-const Usuarios = React.lazy(() => import('./views/admin/usuarios/Usuarios'))
-const SolicitudesAdmin = React.lazy(() => import('./views/admin/solicitudes/Solicitudes'))
+const Dashboard = React.lazy(() => import('../views/admin/dashboard/Dashboard'))
+const LibrosAdmin = React.lazy(() => import('../views/admin/libros/Libros'))
+const TesisAdmin = React.lazy(() => import('../views/admin/tesis/Tesis'))
+const ResidenciasAdmin = React.lazy(() => import('../views/admin/residencia/Residencia'))
+const Agregar = React.lazy(() => import('../views/admin/agregar/Agregar'))
+const Estadisticas = React.lazy(() => import('../views/admin/estadisticas/Estadisticas'))
+const Usuarios = React.lazy(() => import('../views/admin/usuarios/Usuarios'))
+const SolicitudesAdmin = React.lazy(() => import('../views/admin/solicitudes/Solicitudes'))
 
 const routes = [
   //Ruta default

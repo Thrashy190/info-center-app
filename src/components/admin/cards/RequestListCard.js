@@ -14,18 +14,20 @@ import {
 } from '@coreui/react'
 import RequestsModalAdmin from '../modals/RequestsModalAdmin'
 
-const RequestListCard = ({ bookRequests, setBookRequests }) => {
+const RequestListCard = ({ data }) => {
   const [requestData, setRequestData] = useState()
   const [showModal, setShowModal] = useState(false)
   const reviewRequest = (id) => {
-    const request = bookRequests.find((request) => request.id === id)
+    const request = data.requests.find((request) => request.id === id)
     setRequestData({ ...request, reviewed: true })
   }
 
   return (
     <CCard className="mt-4">
       <CCardHeader>
-        <CCardTitle className="pt-2">Solicitudes para agregar o buscar libro</CCardTitle>
+        <CCardTitle className="pt-2">
+          Solicitudes para optener informacion o referencias de libros
+        </CCardTitle>
       </CCardHeader>
       <CCardBody>
         <CTable responsive striped>
@@ -39,7 +41,7 @@ const RequestListCard = ({ bookRequests, setBookRequests }) => {
             </CTableRow>
           </CTableHead>
           <CTableBody>
-            {bookRequests.map((bookRequest) => (
+            {data.requests.map((bookRequest) => (
               <CTableRow key={bookRequest.id}>
                 <CTableDataCell>{bookRequest.id}</CTableDataCell>
                 <CTableDataCell>{bookRequest.date}</CTableDataCell>
@@ -47,7 +49,7 @@ const RequestListCard = ({ bookRequests, setBookRequests }) => {
                 <CTableDataCell>
                   <CBadge
                     style={{ width: '100%', height: '100%' }}
-                    color={bookRequest.reviewed ? 'success' : 'danger'}
+                    color={bookRequest.state_request ? 'success' : 'danger'}
                   >
                     {' '}
                   </CBadge>

@@ -3,8 +3,6 @@ import { AppSidebar, AppFooter, AppHeader } from '../components/general'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { CContainer } from '@coreui/react'
 
-import navigationUser from '../_userNav'
-
 const DefaultLayout = () => {
   return (
     <div>
